@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <p style="text-align:center; font-size: xx-large;">Play random gymbag sound. Click on gymbag!</p>
+    <img class="center"style="height:30%; width:30%;"onclick="gymbag()"src="https://cdn.discordapp.com/attachments/1057098689199484958/1066941521213005884/Gymbag.png"></img>
+    
+
+</body>
+<style>
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+   position: absolute;
+   top:35%;
+   left:37%;
+    width: 50%;
+  }</style>
+<audio style="display:none;"id="music" controls src="/audio/Gym bag gym bag gym bag.mp3"></audio>
+
+<script>
+    function randomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+    function gymbag() {
+        var b = false;
+        if (b == false) {
+        var s = ["/audio/Gym bag gym bag gym bag.mp3", "/audio/I want to Date a Gym Bag.mp3"]
+        var rand = randomInteger(0,1);
+        
+        console.log(rand);
+        $("#music").attr("src", s[rand]);
+        document.getElementById('music').play();
+        document.getElementById("but").disabled = true;
+        var b = true;
+        document.querySelector("#music").addEventListener("ended", () => {
+            document.getElementById("but").disabled = false; 
+            var b = false;
+
+  
+}); }
+    }
+</script>
+</html>
